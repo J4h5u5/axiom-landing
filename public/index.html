@@ -10,36 +10,85 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0"
         />
+        <meta
+            name="“robots”"
+            content="“noindex,"
+            nofollow”
+        />
         <title>Axiom</title>
+        <script src="https://cdn.jsdelivr.net/npm/base-58@0.0.1/Base58.min.js"></script>
+        <link
+            rel="stylesheet"
+            href="style.css"
+        />
     </head>
 
-    <script type="text/javascript">
-        let user;
-
-        function onTelegramAuth(user) {
-            user = user;
-
-            const newDiv = document.createElement('div');
-
-            const userString = 'Logged in as ' +
-                    user.first_name +
-                    ' ' +
-                    user.last_name +
-                    ' (' +
-                    user.id +
-                    (user.username ? ', @' + user.username : '') +
-                    ')';
-
-            const newContent = newDiv.innerHTML = userString;
-
-            document.body.appendChild(newDiv);
-
-            console.log(userString);
-        }
-    </script>
+    <script type="text/javascript"></script>
     <body>
-        <h1>AXIOM</h1>
-        <script async src="https://telegram.org/js/telegram-widget.js?21" data-telegram-login="AxiomAuthBot" data-size="large" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
-    </body>
+        <div class="page-wrapper">
+            <div id="welcome">
+                <img
+                    src="/src/img/black-Space-Drops-Logotype.png"
+                    width="441"
+                    length="198"
+                />
+                <h1>Найди свое место во вселенной!</h1>
 
+                <!--
+            <div class="wrapper">
+                 <button class="auth-btn">ПОЕХАЛИ!</button>
+                <script async src="https://telegram.org/js/telegram-widget.js?21" data-telegram-login="AxiomAuthBot" data-size="large" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
+            </div>
+    -->
+
+                <table cellspacing="0">
+                    <tr>
+                        <td>РЕЙС</td>
+                        <td>#TR300_<span id="users-count"></span></td>
+                    </tr>
+                    <tr>
+                        <td>ДАТА ВЫЛЕТА</td>
+                        <td>[уточняется]</td>
+                    </tr>
+                    <tr>
+                        <td>РЕГИСТРАЦИЯ ЧЕРЕЗ TG</td>
+                        <td>
+                            <div class="wrapper">
+                                <button class="auth-btn">ПОЕХАЛИ!</button>
+                                <script
+                                    async
+                                    src="https://telegram.org/js/telegram-widget.js?21"
+                                    data-telegram-login="AxiomAuthBot"
+                                    data-size="large"
+                                    data-onauth="onTelegramAuth(user)"
+                                    data-request-access="write"
+                                ></script>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Всю необходимую информацию вы получите в Зале Ожидания после регистрации и получения
+                            посадочного талона.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Во время полёта вам будет преложено то, что вам не снилось!</td>
+                    </tr>
+                    <tr>
+                        <td><img scr="img/video_player_mock.png" /></td>
+                    </tr>
+                </table>
+            </div>
+            <div
+                id="cabinet"
+                class="hidden"
+            >
+                <div id="referral-link"></div>
+                <h2>Твои реферралы:</h2>
+                <ul id="referrals"></ul>
+            </div>
+        </div>
+    </body>
+    <script src="/script.js"></script>
 </html>

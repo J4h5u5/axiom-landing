@@ -19,13 +19,12 @@ export const getAllUsers = async (req, res) => {
 };
 
 export const getUser = async (req, res) => {
-    const users = await User.find({ referralId: req.params.id });
+    const user = await User.findOne({ referralId: req.params.id });
     try {
         res.status(200).json({
             status: 'success',
-            results: users.length,
             data: {
-                users
+                user
             },
         });
     } catch (err) {

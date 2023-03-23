@@ -18,6 +18,24 @@ export const getAllUsers = async (req, res) => {
     }
 };
 
+export const getUser = async (req, res) => {
+    const users = await User.find({ referralId: req.params.id });
+    try {
+        res.status(200).json({
+            status: 'success',
+            results: users.length,
+            data: {
+                users
+            },
+        });
+    } catch (err) {
+        res.status(404).json({
+            status: 'fail',
+            message: err,
+        });
+    }
+};
+
 export const createUser = async (req, res) => {
     try {
         const newUser = await User.create(req.body);

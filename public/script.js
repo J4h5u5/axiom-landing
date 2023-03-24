@@ -73,7 +73,7 @@ function onTelegramAuth(user) {
             parent.appendChild(li);
           });
         }
-      }, 7000);
+      }, 8000);
     });
   });
 }

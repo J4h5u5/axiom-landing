@@ -1,47 +1,182 @@
+@font-face { font-family: GetVoIP; src: url('src/fonts/GetVoIP Grotesque.ttf'); }
+
+@font-face {
+    font-family: Manifold;
+    src: url("src/fonts/ManifoldExtendedCF-Regular.woff2") format("woff2"),
+    url("src/fonts/ManifoldExtendedCF-Regular.woff") format("woff"),
+    url("src/fonts/ManifoldExtendedCF-Regular.eot") format("eot");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Manifold;
+    src: url("src/fonts/ManifoldExtendedCF-Bold.woff2") format("woff2"),
+    url("src/fonts/ManifoldExtendedCF-Bold.woff") format("woff"),
+    url("src/fonts/ManifoldExtendedCF-Bold.eot") format("eot");
+    font-weight: 700;
+}
+
+
 body {
     margin: 0;
+    font-family: Manifold, Arial, sans-serif;
+}
+
+.page-wrapper {
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+    padding-top: 60px;
+    padding-bottom: 30px;
+}
+
+h1 {
+    font-family: GetVoIP, Arial, sans-serif;
+}
+
+.logo {
+    background-image: url("/src/img/title.png");
+    width: 441px;
+    height: 198px;
+    margin-bottom: 70px;
+    background-size: cover;
+}
+
+.title {
+    font-size: 51px;
+    line-height: 51px;
+    font-family: GetVoIP, Arial, sans-serif;
+    font-weight: 700;
+    margin-bottom: 70px;
+}
+
+.table-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 32px;
+    line-height: 38px;
+    font-family: Manifold, Arial, sans-serif;
+    margin-bottom: 46px;
+}
+
+.table-row.big {
+    font-size: 36px;
+    line-height: 43px;
+}
+
+.shadow {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#grad1 {
+    height: 1200px;
+    background-image: linear-gradient(#b5b4ba, white);
+}
+
+.table-row {
+    font-size: 32px;
 }
 
 .hidden {
     display: none;
 }
 
-.page-wrapper {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-
-.wrapper {
+.auth-wrapper {
     position: relative;
-    width: 120px;
-    height: 32px;
+    width: 323px;
+    height: 52px;
     overflow: hidden;
+    cursor: pointer;
 }
 .auth-btn {
+    font-family: Manifold, Arial, sans-serif;
+    font-size: 27px;
+    line-height: 32px;
     border: 0;
     background-color: #e8d32a;
-    border-radius: 4px;
     position: absolute;
     top: 0;
     left: 0;
-    font-size: 16px;
-    line-height: 28px;
     width: 100%;
     height: 100%;
+    margin: 0;
     padding-left: 8px;
     padding-right: 8px;
     z-index: 1;
     pointer-events: none;
 }
+.auth-wrapper:hover .auth-btn {
+    background-color: #bead24;
+}
 iframe {
     position: absolute;
-    width: 200px;
+    width: 323px;
     left: 0;
     top: 0;
+    opacity: 0;
 }
 
 #referral-link {
     margin-bottom: 32px;
+}
+
+.text {
+    font-family: Manifold, Arial, sans-serif;
+    font-size: 27px;
+    line-height: 32px;
+    font-weight: 400;
+}
+
+.desc-wrapper .text {
+    margin-top: 70px;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.video {
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .title {
+        font-size: 30px;
+    }
+
+    .table-row {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 12px;
+    }
+
+    .table-row.big {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .text {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    .desc-wrapper {
+        margin-bottom: 60px;
+    }
+
+    .desc-wrapper .text {
+        margin-top: 24px;
+    }
+
+    .auth-wrapper {
+        height: 30px;
+        width: 200px;
+    }
+
+    .auth-btn {
+        font-size: 18px;
+        line-height: 26px;
+        width: 100%;
+        height: 100%;
+    }
 }

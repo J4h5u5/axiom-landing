@@ -19,22 +19,51 @@
             href="style.css"
         />
         <style>
+            #grad1 {
+                height: 1200px;
+                background-image: linear-gradient(#b5b4ba, white);
+            }
             @font-face { font-family: GetVoIP; src: url('src/fonts/GetVoIP Grotesque.ttf'); }
             h1 {
                 font-family: GetVoIP
             }
             @font-face {
                 font-family: Manifold; src: url("src/fonts/ManifoldExtendedCF-Regular.woff2");
+                font-family: Manifold-bold; src: url("src/fonts/ManifoldExtendedCF-Bold.woff2");
             }
             table {
                 font-family: Manifold;
+            }
+            .table {
+                width: 100%;
+                margin-bottom: 20px;
+                border: 0;
+                border-collapse: collapse;
+            }
+            .table th {
+                font-weight: bold;
+                padding: 20px;
+                background: #efefef;
+                border: 0;
+            }
+            .table td {
+                border: 0px;
+                padding: 20px;
+                font-family: Manifold;
+            }
+            .table tr {
+                font-family: Manifold;
+            }
+            .table b {
+                font-family: Manifold-bold;
             }
         </style>
     </head>
 
     <script type="text/javascript"></script>
     <body>
-        <div class="page-wrapper">
+    <div  id="grad1">
+    <div class="page-wrapper">
             <div id="welcome">
                 <img
                     src="/src/img/black-Space-Drops-Logotype.png"
@@ -44,7 +73,7 @@
                 <h1>Найди свое место во вселенной!</h1>
 
 
-                <table cellspacing="0" width="1230" >
+                <table class="table">
                     <tr>
                         <td>РЕЙС</td>
                         <td>#TR300_<span id="users-count"></span></td>
@@ -67,6 +96,11 @@
                                     data-request-access="write"
                                 ></script>
                             </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
                         </td>
                     </tr>
                     <tr>
@@ -95,6 +129,7 @@
                 <ul id="referrals"></ul>
             </div>
         </div>
+    </div>
     </body>
     <script src="/script.js"></script>
 </html>

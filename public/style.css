@@ -185,8 +185,10 @@ iframe {
 
 
 #timer {
-  box-sizing: border-box;
-  background-color: #fff;
+    margin: 0 auto;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: #fff;
 }
 svg {
   margin: auto;

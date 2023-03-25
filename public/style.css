@@ -202,7 +202,7 @@ g > text {
   text-anchor: middle;
   font-size: 400px;
   font-family: GetVoIP, Arial, sans-serif;
-  fill: #000;
+  fill: #e8d32a;
   opacity: 0;
   animation-name: opac;
   animation-duration: 11s;

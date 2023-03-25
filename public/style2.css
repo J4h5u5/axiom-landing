@@ -193,3 +193,7 @@ iframe {
 .micro.normal {
   transform: scale(1);
 }
+
+.hidden {
+  display: none;
+}

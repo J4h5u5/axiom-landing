@@ -39,6 +39,8 @@ html {
 
 .body {
   position: relative;
+  width: 100%;
+  min-height: 100%;
   font-family: Manifold, Arial, sans-serif;
   background-size: cover;
   background-repeat: no-repeat;
@@ -88,13 +90,17 @@ html {
   row-gap: 80px;
 }
 
-.wrapper {
+.wrapper,
+.wrapper-second {
   display: grid;
   row-gap: 80px;
+  opacity: 1;
+  transition: opacity 0.3s linear, transform 0.3s linear;
 }
 
 .title {
   justify-self: center;
+  text-align: center;
   font-family: GetVoIP;
   font-size: 56px;
   line-height: 56px;
@@ -120,6 +126,7 @@ html {
   width: 88px;
   height: 88px;
   border-right: 1px solid #ffffff;
+  cursor: pointer;
 }
 
 .form__input-button-icon {
@@ -244,4 +251,23 @@ iframe {
   width: 100%;
   border-radius: 16px;
 }
+
+
+.wrapper-hidden,
+.wrapper-second-hidden {
+  opacity: 0;
+}
+
+.wrapper-hidden {
+  transform: translateX(-100px);
+}
+
+.wrapper-hidden {
+  transform: translateX(100px);
+}
+
+.removed {
+  display: none;
+}
+
 

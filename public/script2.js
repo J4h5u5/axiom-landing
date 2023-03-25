@@ -78,6 +78,17 @@ const createUser = (userRefId, userName) => {
         $(".welcome").fadeOut();
     }
 
+    const hideWrapper = async() => {
+        $(".wrapper").addClass("wrapper-hidden");
+        await delay(300);
+        $(".wrapper").addClass("removed");
+    }
+
+    const showWrapperSecond = async() => {
+        $(".wrapper-second").removeClass("removed");
+        $(".wrapper-second").removeClass("wrapper-hidden");
+    }
+
 
     fetch(`${API_URL}/usersCount`).then((res) => {
         res.json().then(({ data }) => {
@@ -122,6 +133,11 @@ const createUser = (userRefId, userName) => {
                                 // });
                             }
                         })
+                        delay(2000).then(() => {
+                            hideWrapper().then(() => {
+                                showWrapperSecond();
+                            })
+                        })
                     })
 
                 });
@@ -130,3 +146,4 @@ const createUser = (userRefId, userName) => {
     }
 
 })(jQuery);
+

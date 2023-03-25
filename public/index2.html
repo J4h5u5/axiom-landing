@@ -10,7 +10,6 @@
   <link rel="icon" type="image/x-icon" href="/src/img/favicon-black.ico">
   <script src="https://cdn.jsdelivr.net/npm/base-58@0.0.1/Base58.min.js"></script>
   <link rel="stylesheet" href="style2.css" />
-  <link rel="stylesheet" href="transition_styles.css" />
   <style>
     /* body {
           background-image: url('src/img/background-black.jpeg');
@@ -41,39 +40,39 @@
           НАЙДИ СВОЁ МЕСТО ВО ВСЕЛЕННОЙ!
         </h1>
         <div class="interactive-wrapper">
-          <div class="form">
-            <div class="form__input">
-              <div class="form__input-button">
-                <div class="form__input-button-icon form__input-button-icon_reis"></div>
-              </div>
-              <div class="form__input-content">
-                <span class="form__input-content-title">Рейс</span>
-                <span class="form__input-content-description">#TR 300_<span id="users-count"></span></span>
-              </div>
+        <div class="form">
+          <div class="form__input">
+            <div class="form__input-button">
+              <div class="form__input-button-icon form__input-button-icon_reis"></div>
             </div>
-            <div class="form__input">
-              <div class="form__input-button">
-                <div class="form__input-button-icon form__input-button-icon_date"></div>
-              </div>
-              <div class="form__input-content">
-                <span class="form__input-content-title">Дата вылета</span>
-                <span class="form__input-content-description">[Уточняется]</span>
-              </div>
-            </div>
-            <div class="auth-wrapper">
-              <button class="form__btn">ПОЕХАЛИ!</button>
-              <script
-                  async
-                  src="https://telegram.org/js/telegram-widget.js?21"
-                  data-telegram-login="AxiomAuthBot"
-                  data-size="large"
-                  data-onauth="onTelegramAuth(user)"
-                  data-request-access="write"
-              ></script>
+            <div class="form__input-content">
+              <span class="form__input-content-title">Рейс</span>
+              <span class="form__input-content-description">#TR 300_<span id="users-count"></span></span>
             </div>
           </div>
-          <div class="countdown hidden">7</div>
-          <div class="cosmos micro">ТЫ КОСМОС, ДЕТКА!</div>
+          <div class="form__input">
+            <div class="form__input-button">
+              <div class="form__input-button-icon form__input-button-icon_date"></div>
+            </div>
+            <div class="form__input-content">
+              <span class="form__input-content-title">Дата вылета</span>
+              <span class="form__input-content-description">[Уточняется]</span>
+            </div>
+          </div>
+          <div class="auth-wrapper">
+            <button class="form__btn">ПОЕХАЛИ!</button>
+            <script
+                async
+                src="https://telegram.org/js/telegram-widget.js?21"
+                data-telegram-login="AxiomAuthBot"
+                data-size="large"
+                data-onauth="onTelegramAuth(user)"
+                data-request-access="write"
+            ></script>
+          </div>
+        </div>
+        <div class="countdown hidden">7</div>
+        <div class="cosmos micro">ТЫ КОСМОС, ДЕТКА!</div>
         </div>
 
       </section>

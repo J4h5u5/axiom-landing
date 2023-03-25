@@ -86,6 +86,7 @@ const createUser = (userRefId, userName) => {
 
     const showWrapperSecond = async() => {
         $(".wrapper-second").removeClass("removed");
+        await delay(100);
         $(".wrapper-second").removeClass("wrapper-second-hidden");
     }
 

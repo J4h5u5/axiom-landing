@@ -95,7 +95,7 @@ const createUser = (userRefId, userName) => {
                     hideCountdown();
                     delay(1000).then(() => {
                         showCosmos();
-                        delay(1500).then(() => {
+                        delay(1100).then(() => {
                             hideWelcome();
                             // Здесь отображение кабинета
                             // document.querySelector(

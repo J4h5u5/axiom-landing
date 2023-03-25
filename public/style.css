@@ -226,5 +226,5 @@ g > text:nth-child(8) { animation-delay: 7s; }
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }

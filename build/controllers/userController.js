@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addReferral = exports.createUser = exports.getAllUsers = void 0;
+exports.addReferral = exports.createUser = exports.getUser = exports.getAllUsers = void 0;
 const userModel_1 = require("../models/userModel");
 const getAllUsers = async (req, res) => {
     const users = await userModel_1.User.find();
@@ -21,9 +21,26 @@ const getAllUsers = async (req, res) => {
     }
 };
 exports.getAllUsers = getAllUsers;
+const getUser = async (req, res) => {
+    const user = await userModel_1.User.findOne({ referralId: req.params.id });
+    try {
+        res.status(200).json({
+            status: 'success',
+            data: {
+                user
+            },
+        });
+    }
+    catch (err) {
+        res.status(404).json({
+            status: 'fail',
+            message: err,
+        });
+    }
+};
+exports.getUser = getUser;
 const createUser = async (req, res) => {
     try {
-        console.log(req.body);
         const newUser = await userModel_1.User.create(req.body);
         res.status(201).json({
             status: 'success',

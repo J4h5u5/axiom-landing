@@ -11,5 +11,6 @@ exports.userRouter.route('/')
     .get(userController_1.getAllUsers)
     .post(userController_1.createUser);
 exports.userRouter.route('/:id')
+    .get(userController_1.getUser)
     .patch(userController_1.addReferral);
 //# sourceMappingURL=userRouter.js.map

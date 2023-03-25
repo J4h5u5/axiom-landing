@@ -10,130 +10,124 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0"
         />
-        <meta name=“robots” content=“noindex, nofollow”>
+        <meta
+            name="“robots”"
+            content="“noindex,"
+            nofollow”
+        />
         <title>Space-Drops</title>
-        <link rel="icon" type="image/x-icon" href="/src/img/favicon.ico">
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="/src/img/favicon.ico"
+        />
         <script src="https://cdn.jsdelivr.net/npm/base-58@0.0.1/Base58.min.js"></script>
         <link
             rel="stylesheet"
             href="style.css"
         />
-        <style>
-            #grad1 {
-                height: 1200px;
-                background-image: linear-gradient(#b5b4ba, white);
-            }
-            @font-face { font-family: GetVoIP; src: url('src/fonts/GetVoIP Grotesque.ttf'); }
-            h1 {
-                font-family: GetVoIP
-            }
-            @font-face {
-                font-family: Manifold; src: url("src/fonts/ManifoldExtendedCF-Regular.woff2");
-                font-family: Manifold-bold; src: url("src/fonts/ManifoldExtendedCF-Bold.woff2");
-            }
-            table {
-                font-family: Manifold;
-            }
-            .table {
-                width: 100%;
-                margin-bottom: 20px;
-                border: 0;
-                border-collapse: collapse;
-            }
-            .table th {
-                font-weight: bold;
-                padding: 20px;
-                background: #efefef;
-                border: 0;
-            }
-            .table td {
-                border: 0px;
-                padding: 20px;
-                font-family: Manifold;
-            }
-            .table tr {
-                font-family: Manifold;
-            }
-            .table b {
-                font-family: Manifold-bold;
-            }
-            .table p {
-                font-family: Manifold;
-            }
-        </style>
     </head>
 
     <script type="text/javascript"></script>
     <body>
-    <div  id="grad1">
-    <div class="page-wrapper">
-            <div id="welcome">
-                <img
-                    src="/src/img/black-Space-Drops-Logotype.png"
-                    width="441"
-                    length="198"
-                />
-                <h1>НАЙДИ СВОЁ МЕСТО ВО ВСЕЛЕННОЙ!</h1>
+        <div id="grad1">
+            <div class="page-wrapper">
+                <section id="welcome">
+                    <div class="logo"></div>
+                    <h1 class="title">НАЙДИ СВОЁ МЕСТО ВО ВСЕЛЕННОЙ!</h1>
 
-
-                <table class="table">
-                    <tr>
-                        <td>РЕЙС</td>
-                        <td align="right">#TR300_<span id="users-count"></span></td>
-                    </tr>
-                    <tr>
-                        <td>ДАТА ВЫЛЕТА</td>
-                        <td align="right"><b>[уточняется]</b></td>
-                    </tr>
-                    <tr>
-                        <td>РЕГИСТРАЦИЯ ЧЕРЕЗ TG</td>
-                        <td align="right">
-                            <div class="wrapper">
-                                <button class="auth-btn"><b>ПОЕХАЛИ!</b></button>
-                                <script
-                                    async
-                                    src="https://telegram.org/js/telegram-widget.js?21"
-                                    data-telegram-login="AxiomAuthBot"
-                                    data-size="large"
-                                    data-onauth="onTelegramAuth(user)"
-                                    data-request-access="write"
-                                ></script>
+                    <div class="table">
+                        <div class="table-row">
+                            <span class="shadow">РЕЙС</span>
+                            <span>#TR300_<span id="users-count"></span></span>
+                        </div>
+                        <div class="table-row">
+                            <span>ДАТА ВЫЛЕТА</span>
+                            <span class="bold">[уточняется]</span>
+                        </div>
+                        <div class="table-row big">
+                            <div>РЕГИСТРАЦИЯ ЧЕРЕЗ TG</div>
+                            <div>
+                                <div class="auth-wrapper">
+                                    <button class="auth-btn">ПОЕХАЛИ!</button>
+                                    <script
+                                        async
+                                        src="https://telegram.org/js/telegram-widget.js?21"
+                                        data-telegram-login="AxiomAuthBot"
+                                        data-size="large"
+                                        data-onauth="onTelegramAuth(user)"
+                                        data-request-access="write"
+                                    ></script>
+                                </div>
                             </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;
-                        </td>
-                    </tr>
-                </table>
-                <table class="table">
-                    <tr>
-                        <td><p>Вся необходимая информация ждёт вас в <b>Зале Ожидания</b> после <b>регистрации</b> и получения
-                            <b>посадочного талона.</b></p>
+                        </div>
+                    </div>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><p>Во время полёта вам будет преложено то, что вам не снилось!</p></td>
-                    </tr>
+                    <div class="desc-wrapper">
+                        <p class="text mt-70">
+                            Всю необходимую информацию вы получите в <span class="bold">Зале Ожидания</span> после <span class="bold">регистрации</span> и
+                            получения <span class="bold"></span>посадочного талона.</span>
+                        </p>
 
-                </table>
-                <img src="/src/img/video_player_mock.png"
-                     width = "596"
-                     height="324"
-                />
-            </div>
-            <div
-                id="cabinet"
-                class="hidden"
-            >
-                <div id="referral-link"></div>
-                <h2>Твои реферралы:</h2>
-                <ul id="referrals"></ul>
+                        <p class="text mt-70">Во время полёта вам будет преложено то, что вам не снилось!</p>
+                    </div>
+
+
+                    <video
+                        class="video"
+                        controls
+                        poster="/src/img/video_player_mock.png"
+                    >
+                        <source
+                            src="/src/video/tr300_1.mp4"
+                            type="video/mp4"
+                        />
+                        <source
+                            src="https://archive.org/download/WebmVp8Vorbis/webmvp8.ogv"
+                            type="video/ogg"
+                        />
+                        <source
+                            src="https://archive.org/download/WebmVp8Vorbis/webmvp8.webm"
+                            type="video/webm"
+                        />
+                        Your browser doesn't support HTML5 video tag.
+                    </video>
+                </section>
+
+                <section
+                    id="cabinet"
+                    class="hidden"
+                >
+                    <div id="referral-link"></div>
+                    <h2>Твои реферралы:</h2>
+                    <ul id="referrals"></ul>
+                </section>
             </div>
         </div>
-    </div>
+        <section id="timer" class="hidden">
+            <div>
+                <svg viewBox="-500 -500 1000 1000" width="100%" height="100%" preserveAspectRatio="xMidYMin slice">
+                    <defs>
+                      <filter id="goo">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -5" result="goo"></feColorMatrix>
+                        <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+                      </filter>
+                    </defs>
+                    <circle fill="#e8d32a" cx="0" cy="0" r="300"></circle>
+                    <g filter="url(#goo)">
+                      <text x="0" y="150">7</text>
+                      <text x="0" y="150">6</text>
+                      <text x="0" y="150">5</text>
+                      <text x="0" y="150">4</text>
+                      <text x="0" y="150">3</text>
+                      <text x="0" y="150">2</text>
+                      <text x="0" y="150">1</text>
+                      <text x="0" y="150">0</text>
+                    </g>
+                  </svg>
+            </div>
+        </section>
     </body>
     <script src="/script.js"></script>
 </html>

@@ -156,3 +156,22 @@
   font-weight: 700;
   background-color: #E9D825;
 }
+
+.cosmos,
+.countdown {
+  font-family: GetVoIP;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px #E9D825;
+  font-size: 80px;
+}
+
+.micro {
+  display: inline-block;
+  transform: scale(0);
+  transition: all 1500ms;
+}
+
+.micro.normal {
+  transform: scale(1);
+}

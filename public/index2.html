@@ -15,9 +15,10 @@
           background-image: url('src/img/background-black.jpeg');
       } */
   </style>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous">
+    </script>
 </head>
-
-<script type="text/javascript"></script>
 
 <body class="body">
   <div class="conteiner">
@@ -36,27 +37,37 @@
         <h1 class="title">
           НАЙДИ СВОЁ МЕСТО ВО ВСЕЛЕННОЙ!
         </h1>
-        <div class="form">
-          <div class="form__input">
-            <div class="form__input-button">
-              <div class="form__input-button-icon form__input-button-icon_reis"></div>
+        <div class="interactive-wrapper">
+          <div class="form">
+            <div class="form__input">
+              <div class="form__input-button">
+                <div class="form__input-button-icon form__input-button-icon_reis"></div>
+              </div>
+              <div class="form__input-content">
+                <span class="form__input-content-title">Рейс</span>
+                <span class="form__input-content-description">#TR 300_<span id="users-count"></span></span>
+              </div>
             </div>
-            <div class="form__input-content">
-              <span class="form__input-content-title">Рейс</span>
-              <span class="form__input-content-description">#TR 300_1</span>
+            <div class="form__input">
+              <div class="form__input-button">
+                <div class="form__input-button-icon form__input-button-icon_date"></div>
+              </div>
+              <div class="form__input-content">
+                <span class="form__input-content-title">Дата вылета</span>
+                <span class="form__input-content-description">[Уточняется]</span>
+              </div>
+            </div>
+            <div class="auth-wrapper">
+              <button class="form__btn">ПОЕХАЛИ!</button>
+              <script async src="https://telegram.org/js/telegram-widget.js?21" data-telegram-login="AxiomAuthBot"
+                data-size="large" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
             </div>
           </div>
-          <div class="form__input">
-            <div class="form__input-button">
-              <div class="form__input-button-icon form__input-button-icon_date"></div>
-            </div>
-            <div class="form__input-content">
-              <span class="form__input-content-title">Дата вылета</span>
-              <span class="form__input-content-description">[Уточняется]</span>
-            </div>
-          </div>
-          <button class="form__btn">ПОЕХАЛИ!</button>
+          <div class="countdown hidden">7</div>
+          <div class="cosmos micro">ТЫ КОСМОС, ДЕТКА!</div>
         </div>
+
+
         <div class="description">
           <span class="description__text">
             Вся необходимая информация будет доступна в <span class="bold">Зале Ожидания</span> после <span
@@ -75,6 +86,19 @@
           Your browser doesn't support HTML5 video tag.
         </video>
       </section>
+      <section class="wrapper-second wrapper-second-hidden removed">
+        <h1 class="title">
+          РЕГИСТРАЦИЯ ПРОШЛА УСПЕШНО!
+        </h1>
+        <div class="description">
+          <span class="description__text">
+            Над Марсом скопление Туч Загадочности. В Области Посадки работает Техника! Дата Вылета уточняется.
+          </span>
+        </div>
+      </section>
     </main>
   </div>
 </body>
+<script defer src="/script2.js"></script>
+
+</html>

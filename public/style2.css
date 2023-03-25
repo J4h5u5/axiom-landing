@@ -178,6 +178,10 @@ iframe {
 
 .cosmos,
 .countdown {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   font-family: GetVoIP;
   font-weight: 900;
   color: transparent;
@@ -198,4 +202,8 @@ iframe {
 
 .hidden {
   display: none;
+}
+
+.interactive-wrapper {
+  position: relative;
 }

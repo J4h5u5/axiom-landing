@@ -56,7 +56,7 @@ const createUser = (userRefId, userName) => {
     }
 
     const hideForm = () => {
-        $(".form").fadeOut();
+        $(".form").css({ display: 'none' });
     }
 
     const showCountdown = () => {
@@ -99,9 +99,9 @@ const createUser = (userRefId, userName) => {
                         delay(1500).then(() => {
                             hideWelcome();
                             // Здесь отображение кабинета
-                            document.querySelector(
-                                '#referral-link'
-                            ).innerHTML = `твоя реферральная ссылка: ${location.origin}/?ref=${userRefId}`;
+                            // document.querySelector(
+                            //     '#referral-link'
+                            // ).innerHTML = `твоя реферральная ссылка: ${location.origin}/?ref=${userRefId}`;
                             console.log('/users/:id', data);
                             const userName = user.username || `${user.first_name} ${user.last_name}`;
                             if (!data.user) {

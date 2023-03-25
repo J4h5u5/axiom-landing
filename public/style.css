@@ -77,10 +77,6 @@ h1 {
     font-size: 32px;
 }
 
-.hidden {
-    display: none;
-}
-
 .auth-wrapper {
     position: relative;
     width: 323px;
@@ -227,4 +223,8 @@ g > text:nth-child(8) { animation-delay: 7s; }
   10% { opacity: 1; }
   15% { opacity: 0; }
   100% { opacity: 0; }
+}
+
+.hidden {
+    display: none;
 }

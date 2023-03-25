@@ -83,7 +83,7 @@ const createUser = (userRefId, userName) => {
         });
     });
 
-    function onTelegramAuth(user) {
+    window.onTelegramAuth = (user) => {
         console.log(user);
 
         const userRefId = Base58.encode(enc.encode(user.id));

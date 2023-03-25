@@ -94,32 +94,33 @@ const createUser = (userRefId, userName) => {
             res.json().then(({ data }) => {
                 delay(7000).then(() => {
                     hideCountdown();
-                    showCosmos();
-                    delay(1500).then(() => {
-                        hideWelcome();
-                        // Здесь отображение кабинета
-                        document.querySelector(
-                            '#referral-link'
-                        ).innerHTML = `твоя реферральная ссылка: ${location.origin}/?ref=${userRefId}`;
-                        console.log('/users/:id', data);
-                        const userName = user.username || `${user.first_name} ${user.last_name}`;
-                        if (!data.user) {
-                            createUser(userRefId, userName);
-                        } else {
-                            console.log(data.user);
-                            data.user.referrals.forEach((ref) => {
-                                if (!ref.userName) {
-                                    return;
-                                }
-                                const li = document.createElement('li');
-                                const text = document.createTextNode(ref.userName);
-                                li.appendChild(text);
-                                const parent = document.getElementById('referrals');
-                                parent.appendChild(li);
-                            });
-                        }
+                    delay(1000).then(() => {
+                        showCosmos();
+                        delay(1500).then(() => {
+                            hideWelcome();
+                            // Здесь отображение кабинета
+                            document.querySelector(
+                                '#referral-link'
+                            ).innerHTML = `твоя реферральная ссылка: ${location.origin}/?ref=${userRefId}`;
+                            console.log('/users/:id', data);
+                            const userName = user.username || `${user.first_name} ${user.last_name}`;
+                            if (!data.user) {
+                                createUser(userRefId, userName);
+                            } else {
+                                console.log(data.user);
+                                data.user.referrals.forEach((ref) => {
+                                    if (!ref.userName) {
+                                        return;
+                                    }
+                                    const li = document.createElement('li');
+                                    const text = document.createTextNode(ref.userName);
+                                    li.appendChild(text);
+                                    const parent = document.getElementById('referrals');
+                                    parent.appendChild(li);
+                                });
+                            }
+                        })
                     })
-
 
                 });
             });

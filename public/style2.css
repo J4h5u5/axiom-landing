@@ -156,6 +156,7 @@
 }
 
 .form__btn {
+  height: 90px;
   width: 400px;
   border: 1px solid #E9D825;
   border-radius: 16px;
@@ -182,6 +183,7 @@ iframe {
   color: transparent;
   -webkit-text-stroke: 1px #E9D825;
   font-size: 80px;
+  text-align: center;
 }
 
 .micro {

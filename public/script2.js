@@ -42,8 +42,7 @@ const createUser = (userRefId, userName) => {
 };
 
 (function () {
-    $("iframe").contents().find("юtgme_widget_login_button").css({ width: "400px", height: "90px" });
-    console.log($("iframe").contents());
+    $("iframe").contents().find(".tgme_widget_login_button").css({ width: "400px", height: "90px" });
 
     const countDown = (timeleft) => {
         let _timeleft = timeleft;

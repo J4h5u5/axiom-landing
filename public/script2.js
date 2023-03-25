@@ -1,9 +1,10 @@
 const API_URL = 'https://space-dropsov.net/api/v1';
 
+// eslint-disable-next-line node/no-unsupported-features/node-builtins
 const enc = new TextEncoder();
 
 function delay(ms) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         setTimeout(resolve, ms);
     });
 }
@@ -46,8 +47,6 @@ const createUser = (userRefId, userName) => {
         let _timeleft = timeleft;
         const timer = setInterval(function(){
             _timeleft--;
-            console.log(_timeleft);
-            console.log($(".countdown"))
             $(".countdown").text(_timeleft);
             if(_timeleft <= 0) {
                 clearInterval(timer);
@@ -107,17 +106,17 @@ const createUser = (userRefId, userName) => {
                             if (!data.user) {
                                 createUser(userRefId, userName);
                             } else {
-                                console.log(data.user);
-                                data.user.referrals.forEach((ref) => {
-                                    if (!ref.userName) {
-                                        return;
-                                    }
-                                    const li = document.createElement('li');
-                                    const text = document.createTextNode(ref.userName);
-                                    li.appendChild(text);
-                                    const parent = document.getElementById('referrals');
-                                    parent.appendChild(li);
-                                });
+                                // console.log(data.user);
+                                // data.user.referrals.forEach((ref) => {
+                                //     if (!ref.userName) {
+                                //         return;
+                                //     }
+                                //     const li = document.createElement('li');
+                                //     const text = document.createTextNode(ref.userName);
+                                //     li.appendChild(text);
+                                //     const parent = document.getElementById('referrals');
+                                //     parent.appendChild(li);
+                                // });
                             }
                         })
                     })

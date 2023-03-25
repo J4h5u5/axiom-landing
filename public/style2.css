@@ -147,7 +147,16 @@
   font-weight: 700;
 }
 
+.auth-wrapper {
+  position: relative;
+  width: 400px;
+  height: 90px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
 .form__btn {
+  width: 400px;
   border: 1px solid #E9D825;
   border-radius: 16px;
   font-family: Manifold;
@@ -155,6 +164,15 @@
   line-height: 32px;
   font-weight: 700;
   background-color: #E9D825;
+}
+
+iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0;
 }
 
 .cosmos,

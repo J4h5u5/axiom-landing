@@ -1,0 +1,158 @@
+:root {
+  --blackColor: #000000;
+}
+
+@font-face { font-family: GetVoIP; src: url('src/fonts/GetVoIP Grotesque.ttf'); }
+
+@font-face {
+    font-family: Manifold;
+    src: url("src/fonts/ManifoldExtendedCF-Regular.woff2") format("woff2"),
+    url("src/fonts/ManifoldExtendedCF-Regular.woff") format("woff"),
+    url("src/fonts/ManifoldExtendedCF-Regular.eot") format("eot");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Manifold;
+    src: url("src/fonts/ManifoldExtendedCF-Bold.woff2") format("woff2"),
+    url("src/fonts/ManifoldExtendedCF-Bold.woff") format("woff"),
+    url("src/fonts/ManifoldExtendedCF-Bold.eot") format("eot");
+    font-weight: 700;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  position: relative;
+  font-family: Manifold, Arial, sans-serif;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-image: url('./src/img/background-black.jpeg');
+}
+
+.body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: var(--blackColor);
+  opacity: 0.6;
+}
+
+.conteiner {
+  z-index: 1;
+  position: relative;
+  display: grid;
+  row-gap: 80px;
+  margin: 0 auto;
+  padding: 80px 0;
+  max-width: 1240px;
+  width: 100%;
+}
+
+.header,
+.planet {
+  display: flex;
+  justify-content: center;
+}
+
+.header__logo {
+  width: 212px;
+  height: 95px;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('./src/img/black-Space-Drops-Logotype.svg');
+}
+
+.main {
+  display: grid;
+  row-gap: 80px;
+}
+
+.wrapper {
+  display: grid;
+  row-gap: 80px;
+}
+
+.title {
+  justify-self: center;
+  font-family: GetVoIP;
+  font-size: 56px;
+  line-height: 56px;
+  font-weight: normal;
+  color: #ffffff;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 24px;
+}
+
+.form__input {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  border: 1px solid #ffffff;
+  border-radius: 16px;
+}
+
+.form__input-button {
+  padding: 24px;
+  width: 88px;
+  height: 88px;
+  border-right: 1px solid #ffffff;
+}
+
+.form__input-button-icon {
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.form__input-button-icon_reis {
+  background-image: url('./src/img/airlines.svg');
+}
+
+.form__input-button-icon_date {
+  background-image: url('./src/img/date_range.svg');
+}
+
+.form__input-content {
+  display: grid;
+  padding: 22px 32px;
+  color: #ffffff;
+}
+
+.form__input-content-title {
+  height: min-content;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 500;
+}
+
+.form__input-content-description {
+  height: min-content;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.form__btn {
+  border: 1px solid #E9D825;
+  border-radius: 16px;
+  font-family: Manifold;
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 700;
+  background-color: #E9D825;
+}

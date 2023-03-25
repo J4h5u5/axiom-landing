@@ -6,6 +6,13 @@
 
 @font-face {
     font-family: Manifold;
+    src: url("src/fonts/ManifoldExtendedCF-Light.woff2") format("woff2"),
+    url("src/fonts/ManifoldExtendedCF-Light.woff") format("woff"),
+    url("src/fonts/ManifoldExtendedCF-Light.eot") format("eot");
+    font-weight: 300;
+}
+@font-face {
+    font-family: Manifold;
     src: url("src/fonts/ManifoldExtendedCF-Regular.woff2") format("woff2"),
     url("src/fonts/ManifoldExtendedCF-Regular.woff") format("woff"),
     url("src/fonts/ManifoldExtendedCF-Regular.eot") format("eot");
@@ -26,12 +33,16 @@
   box-sizing: border-box;
 }
 
+html {
+  background-color: #000000;
+}
+
 .body {
   position: relative;
   font-family: Manifold, Arial, sans-serif;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top left;
+  background-position: center;
   background-image: url('./src/img/background-black.jpeg');
 }
 
@@ -42,7 +53,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: var(--blackColor);
+  background-color: #000000;
   opacity: 0.6;
 }
 
@@ -167,6 +178,7 @@
   background-color: #E9D825;
 }
 
+
 iframe {
   position: absolute;
   width: 100%;
@@ -211,3 +223,25 @@ iframe {
 .interactive-wrapper {
   position: relative;
 }
+
+.description {
+  display: grid;
+  row-gap: 60px;
+}
+
+.description__text {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 300;
+  color: #ffffff;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.video {
+  width: 100%;
+  border-radius: 16px;
+}
+

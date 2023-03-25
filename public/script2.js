@@ -42,7 +42,9 @@ const createUser = (userRefId, userName) => {
 };
 
 (function () {
-    $("iframe").contents().find(".tgme_widget_login_button").css({ width: "400px", height: "90px" });
+    setTimeout(() => {
+        $("iframe").contents().find(".tgme_widget_login_button").css({ width: "400px", height: "90px" });
+    }, 500);
 
     const countDown = (timeleft) => {
         let _timeleft = timeleft;

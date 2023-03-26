@@ -249,6 +249,7 @@ iframe {
 
 .video {
   width: 70%;
+  margin: auto;
   border-radius: 16px;
 }
 

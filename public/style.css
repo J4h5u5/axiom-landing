@@ -211,7 +211,7 @@ g > text {
   fill: #e8d32a;
   opacity: 0;
   animation-name: opac;
-  animation-duration: 7.5s;
+  animation-duration: 7s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }

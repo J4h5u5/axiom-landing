@@ -38,8 +38,8 @@ h1 {
 
 .logo {
     background-image: url("/src/img/title.png");
-    width: 441px;
-    height: 198px;
+    width: 224px;
+    height: 106px;
     margin-bottom: 70px;
     background-size: cover;
 }

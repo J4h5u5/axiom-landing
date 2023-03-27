@@ -272,3 +272,119 @@ iframe {
 }
 
 
+@media (max-width: 900px) {
+  .button {
+    width: 100px
+  }
+
+  .header__logo {
+    width: 156px;
+    height: 69px;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('./src/img/black-Space-Drops-Logotype.svg');
+  }
+
+  .planet {
+    display: flex;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+  }
+
+  .main {
+    display: grid;
+    row-gap: 48px;
+  }
+
+  .wrapper-second {
+    display: grid;
+    row-gap: 48px;
+    opacity: 1;
+    transition: opacity 0.3s linear, transform 0.3s linear;
+  }
+
+  .title {
+    justify-self: center;
+    text-align: center;
+    font-family: GetVoIP;
+    font-size: 28px;
+    line-height: 56px;
+    font-weight: normal;
+    color: #ffffff;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 16px;
+  }
+
+  .form__input {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+  }
+
+  .form__input-button {
+    padding: 16px;
+    width: 312px;
+    height: 46px;
+    border-right: 1px solid #ffffff;
+    cursor: pointer;
+  }
+
+  .form__input-content {
+    display: grid;
+    padding: 22px 32px;
+    color: #ffffff;
+  }
+  .form__input-content-title {
+    height: min-content;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: 500;
+  }
+
+  .form__input-content-description {
+    height: min-content;
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 700;
+  }
+
+  .auth-wrapper {
+    position: relative;
+    width: 400px;
+    height: 90px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .form__btn {
+    height: 90px;
+    width: 400px;
+    border: 1px solid #E9D825;
+    border-radius: 16px;
+    font-family: Manifold;
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 700;
+    background-color: #E9D825;
+  }
+
+  .description {
+    display: grid;
+    row-gap: 48px;
+  }
+
+  .description__text {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 300;
+    color: #ffffff;
+  }
+}

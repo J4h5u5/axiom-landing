@@ -59,7 +59,7 @@ html {
   opacity: 0.6;
 }
 
-.conteiner {
+.container {
   z-index: 1;
   position: relative;
   display: grid;

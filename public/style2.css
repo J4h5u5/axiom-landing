@@ -75,6 +75,7 @@ html {
 .main {
   display: grid;
   row-gap: 80px;
+  padding: 0 8px;
 }
 
 .wrapper,
@@ -145,16 +146,15 @@ html {
 
 .auth-wrapper {
   position: relative;
-  width: 400px;
-  height: 65px;
+  height: 100%;
   overflow: hidden;
   cursor: pointer;
 }
 
 .form__btn,
 .forn__btn_hover {
-  height: 65px;
-  width: 400px;
+  height: 100%;
+  width: 100%;
   border: 2px solid #FFDA01;
   border-radius: 16px;
   font-family: Manifold;

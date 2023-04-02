@@ -225,7 +225,7 @@ iframe {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .interactive-wrapper {
@@ -276,11 +276,13 @@ iframe {
 }
 
 @media (max-width: 800px) {
+
   .header__logo {
     width: 142px;
     height: 64px;
   }
-    .form {
+
+  .form {
       display: grid;
       grid-template-columns: auto;
       row-gap: 16px;
@@ -297,7 +299,20 @@ iframe {
   }
 
   .interactive-wrapper {
-    height: auto;
+    height: 220px;
+  }
+
+  .cosmos, .countdown {
+    transform: translateX(-50%) translateY(-50%);
+    top: 50%;
+  }
+
+  .cosmos {
+    font-size: 40px;
+  }
+
+  .cosmos.micro {
+    transform: translateX(-50%) scale(0);
   }
 
   .title {

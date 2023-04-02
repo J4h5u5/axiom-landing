@@ -1,133 +1,94 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8" />
-        <meta
-            http-equiv="X-UA-Compatible"
-            content="IE=edge"
-        />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-        />
-        <meta
-            name="“robots”"
-            content="“noindex,"
-            nofollow”
-        />
-        <title>Space-Drops</title>
-        <link
-            rel="icon"
-            type="image/x-icon"
-            href="/src/img/favicon.ico"
-        />
-        <script src="https://cdn.jsdelivr.net/npm/base-58@0.0.1/Base58.min.js"></script>
-        <link
-            rel="stylesheet"
-            href="style.css"
-        />
-    </head>
 
-    <script type="text/javascript"></script>
-    <body>
-        <div id="grad1">
-            <div class="page-wrapper">
-                <section id="welcome">
-                    <div class="logo"></div>
-                    <h1 class="title">НАЙДИ СВОЁ МЕСТО ВО ВСЕЛЕННОЙ!</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name=“robots” content=“noindex, nofollow”>
+  <title>Space-Drops</title>
+  <link rel="icon" type="image/x-icon" href="/src/img/favicon-black.ico">
+  <script src="https://cdn.jsdelivr.net/npm/base-58@0.0.1/Base58.min.js"></script>
+  <link rel="stylesheet" href="style2.css" />
+  <style>
+      /* body {
+            background-image: url('src/img/background-black.jpeg');
+        } */
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+          integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous">
+  </script>
+</head>
 
-                    <div class="table">
-                        <div class="table-row">
-                            <span class="shadow">РЕЙС</span>
-                            <span>#TR300_<span id="users-count"></span></span>
-                        </div>
-                        <div class="table-row">
-                            <span>ДАТА ВЫЛЕТА</span>
-                            <span class="bold">[уточняется]</span>
-                        </div>
-                        <div class="table-row big">
-                            <div>РЕГИСТРАЦИЯ ЧЕРЕЗ TG</div>
-                            <div>
-                                <div class="auth-wrapper">
-                                    <button class="auth-btn">ПОЕХАЛИ!</button>
-                                    <script
-                                        async
-                                        src="https://telegram.org/js/telegram-widget.js?21"
-                                        data-telegram-login="AxiomAuthBot"
-                                        data-size="large"
-                                        data-onauth="onTelegramAuth(user)"
-                                        data-request-access="write"
-                                    ></script>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<body class="body">
+<div class="container">
 
-                    <div class="desc-wrapper">
-                        <p class="text mt-70">
-                            Всю необходимую информацию вы получите в <span class="bold">Зале Ожидания</span> после <span class="bold">регистрации</span> и
-                            получения <span class="bold"></span>посадочного талона.</span>
-                        </p>
+  <header class="header">
+    <div class="header__logo"></div>
+  </header>
 
-                        <p class="text mt-70">Во время полёта вам будет предложено то, что вам не снилось!</p>
-                    </div>
+  <main class="main">
+<!--    <section class="planet">-->
+<!--      <img class="planet__img" src="src/img/earth.svg" alt="Planet">-->
+<!--    </section>-->
 
-
-                    <video
-                        class="video"
-                        controls
-                        poster="/src/img/video_player_mock.png"
-                    >
-                        <source
-                            src="/src/video/tr300_1.mp4"
-                            type="video/mp4"
-                        />
-                        <source
-                            src="https://archive.org/download/WebmVp8Vorbis/webmvp8.ogv"
-                            type="video/ogg"
-                        />
-                        <source
-                            src="https://archive.org/download/WebmVp8Vorbis/webmvp8.webm"
-                            type="video/webm"
-                        />
-                        Your browser doesn't support HTML5 video tag.
-                    </video>
-                </section>
-
-                <section
-                    id="cabinet"
-                    class="hidden"
-                >
-                    <div id="referral-link"></div>
-                    <h2>Твои реферралы:</h2>
-                    <ul id="referrals"></ul>
-                </section>
+    <section class="wrapper">
+      <h1 class="title">
+        НАЙДИ СВОЁ МЕСТО ВО ВСЕЛЕННОЙ!
+      </h1>
+      <div class="interactive-wrapper">
+        <div class="form">
+          <div class="form__input">
+            <div class="form__input-content">
+              <span class="form__input-content-description">РЕЙС: # TR 300_<span id="users-count"></span></span>
             </div>
+          </div>
+          <div class="form__input">
+            <div class="form__input-content">
+              <span class="form__input-content-description">ДАТА: [Уточняется]</span>
+            </div>
+          </div>
+          <div class="auth-wrapper">
+            <button class="form__btn">ПОЕХАЛИ!</button>
+            <button class="forn__btn_hover">Регистрация в ТГ</button>
+            <script async src="https://telegram.org/js/telegram-widget.js?21" data-telegram-login="AxiomAuthBot"
+                    data-size="large" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
+          </div>
         </div>
-        <section id="timer" class="hidden">
-            <div class="counter">
-                <svg viewBox="-500 -500 1000 1000" width="100%" height="100%" preserveAspectRatio="xMidYMin slice">
-                    <defs>
-                      <filter id="goo">
-                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
-                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -5" result="goo"></feColorMatrix>
-                        <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
-                      </filter>
-                    </defs>
-                    <circle fill="#b5b4ba" cx="0" cy="0" r="300"></circle>
-                    <g filter="url(#goo)">
-                      <text x="0" y="130">7</text>
-                      <text x="0" y="130">6</text>
-                      <text x="0" y="130">5</text>
-                      <text x="0" y="130">4</text>
-                      <text x="0" y="130">3</text>
-                      <text x="0" y="130">2</text>
-                      <text x="0" y="130">1</text>
-                      <text x="0" y="130">0</text>
-                    </g>
-                  </svg>
-            </div>
-        </section>
-    </body>
-    <script src="/script.js"></script>
+        <div class="countdown hidden">7</div>
+        <div class="cosmos micro">ТЫ КОСМОС, ДЕТКА!</div>
+      </div>
+
+
+      <div class="description">
+          <span class="description__text">
+            Вся необходимая информация будет доступна в <span>Зале Ожидания</span> после <span>регистрации</span> и
+            получения <span>посадочного
+              талона</span>.
+          </span>
+      </div>
+      <video class="video" controls poster="./src/img/video_player_mock.png">
+        <source src="./src/video/tr300_1.mp4" type="video/mp4" />
+        <source src="./src/video/tr300_2.mp4" type="video/mp4" />
+        <source src="./src/video/tr300_3.mp4" type="video/mp4" />
+        Your browser doesn't support HTML5 video tag.
+      </video>
+    </section>
+
+
+    <section class="wrapper-second wrapper-second-hidden removed">
+      <h1 class="title">
+        РЕГИСТРАЦИЯ ПРОШЛА УСПЕШНО!
+      </h1>
+      <div class="description">
+          <span class="description__text">
+            В Области Посадки работает Техника! Дата Вылета уточняется.
+          </span>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+<script defer src="/script2.js"></script>
+
 </html>

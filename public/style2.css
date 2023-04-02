@@ -185,12 +185,16 @@ iframe {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  font-family: GetVoIP;
+  font-family: Manifold, Arial, sans-serif;
   font-weight: 900;
-  color: transparent;
-  -webkit-text-stroke: 1px #E9D825;
-  font-size: 80px;
+  font-size: 53px;
   text-align: center;
+}
+
+.cosmos {
+  color: #FFDA01;
+  font-size: 70px;
+  top: -8px;
 }
 
 .micro {
@@ -208,6 +212,7 @@ iframe {
 }
 
 .interactive-wrapper {
+  height: 65px;
   position: relative;
 }
 

@@ -209,15 +209,15 @@ iframe {
 }
 
 .cosmos {
+  display: inline-block;
   color: #FFDA01;
   font-size: 70px;
   top: -8px;
+  transition: all 1500ms;
 }
 
 .micro {
-  display: inline-block;
   transform: translateX(-50%) scale(0);
-  transition: all 1500ms;
 }
 
 .micro.normal {
@@ -308,8 +308,7 @@ iframe {
   }
 
   .cosmos {
-    font-size: 40px;
-    transition: 0.3s;
+    font-size: 30px;
   }
 
   .cosmos.micro {

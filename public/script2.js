@@ -71,7 +71,7 @@ const createUser = (userRefId, userName) => {
     }
 
     const showCosmos = () => {
-        $('.cosmos').addClass('normal');
+        $('.cosmos').removeClass('micro');
     }
 
     const hideWelcome = () => {

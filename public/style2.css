@@ -102,8 +102,6 @@ html {
 }
 
 .form__input {
-  display: grid;
-  grid-template-columns: auto 1fr;
   border: 2px solid #B5B4BA;
   border-radius: 16px;
 }
@@ -153,16 +151,35 @@ html {
   cursor: pointer;
 }
 
-.form__btn {
+.form__btn,
+.forn__btn_hover {
   height: 65px;
   width: 400px;
-  border: 1px solid #FFDA01;
+  border: 2px solid #FFDA01;
   border-radius: 16px;
   font-family: Manifold;
   font-size: 21px;
   line-height: 25px;
   font-weight: 700;
   background-color: #FFDA01;
+}
+
+.auth-wrapper:hover .form__btn {
+  display: none;
+}
+
+.forn__btn_hover {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.auth-wrapper:hover .forn__btn_hover {
+  display: block;
+  background-color: #B5B4BA;
+  border: 2px solid #B5B4BA;
+  color: #fff;
 }
 
 
@@ -241,7 +258,6 @@ iframe {
   border-radius: 16px;
 }
 
-
 .wrapper-hidden,
 .wrapper-second-hidden {
   opacity: 0;
@@ -259,4 +275,65 @@ iframe {
   display: none;
 }
 
+@media (max-width: 800px) {
+  .header__logo {
+    width: 142px;
+    height: 64px;
+  }
+    .form {
+      display: grid;
+      grid-template-columns: auto;
+      row-gap: 16px;
+  }
 
+  .form__btn {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .wrapper {
+    padding: 0 24px;
+    row-gap: 0;
+  }
+
+  .interactive-wrapper {
+    height: auto;
+  }
+
+  .title {
+    font-size: 25px;
+    line-height: 25px;
+    margin-bottom: 40px;
+  }
+
+  .form__input-content-description {
+    text-align: center;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .description__text {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .form__input-content {
+    padding: 14px 40px;
+  }
+
+  .auth-wrapper {
+    height: 45px;
+    width: 100%;
+    margin-bottom: 45px;
+  }
+
+  .form__btn,
+  .forn__btn_hover {
+    height: 45px;
+    width: 100%;
+  }
+
+  .description {
+    margin-bottom: 45px;
+  }
+}

@@ -34,7 +34,7 @@
 }
 
 html {
-  background-color: #000000;
+  background-color: #fff;
 }
 
 .body {
@@ -45,44 +45,31 @@ html {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url('./src/img/background-black.jpeg');
-}
-
-.body::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: #000000;
-  opacity: 0.6;
 }
 
 .container {
   z-index: 1;
   position: relative;
   display: grid;
-  row-gap: 80px;
   margin: 0 auto;
-  padding: 80px 0;
+  padding: 60px 0;
   max-width: 1240px;
   width: 100%;
 }
 
-.header,
-.planet {
+.header {
   display: flex;
   justify-content: center;
+  margin-bottom: 80px;
 }
 
 .header__logo {
-  width: 212px;
-  height: 95px;
+  width: 285px;
+  height: 128px;
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('./src/img/black-Space-Drops-Logotype.svg');
+  background-image: url('./src/img/title.png');
 }
 
 .main {
@@ -93,7 +80,7 @@ html {
 .wrapper,
 .wrapper-second {
   display: grid;
-  row-gap: 80px;
+  row-gap: 100px;
   opacity: 1;
   transition: opacity 0.3s linear, transform 0.3s linear;
 }
@@ -102,10 +89,10 @@ html {
   justify-self: center;
   text-align: center;
   font-family: GetVoIP;
-  font-size: 56px;
-  line-height: 56px;
+  font-size: 53px;
+  line-height: 53px;
   font-weight: normal;
-  color: #ffffff;
+  color: #000;
 }
 
 .form {
@@ -117,7 +104,7 @@ html {
 .form__input {
   display: grid;
   grid-template-columns: auto 1fr;
-  border: 1px solid #ffffff;
+  border: 2px solid #B5B4BA;
   border-radius: 16px;
 }
 
@@ -125,7 +112,7 @@ html {
   padding: 24px;
   width: 88px;
   height: 88px;
-  border-right: 1px solid #ffffff;
+  border-right: 2px solid #B5B4BA;
   cursor: pointer;
 }
 
@@ -147,42 +134,35 @@ html {
 
 .form__input-content {
   display: grid;
-  padding: 22px 32px;
-  color: #ffffff;
-}
-
-.form__input-content-title {
-  height: min-content;
-  font-size: 12px;
-  line-height: 12px;
-  font-weight: 500;
+  padding: 20px 60px;
+  color: #000;
 }
 
 .form__input-content-description {
   height: min-content;
-  font-size: 24px;
-  line-height: 24px;
+  font-size: 21px;
+  line-height: 25px;
   font-weight: 700;
 }
 
 .auth-wrapper {
   position: relative;
   width: 400px;
-  height: 90px;
+  height: 65px;
   overflow: hidden;
   cursor: pointer;
 }
 
 .form__btn {
-  height: 90px;
+  height: 65px;
   width: 400px;
-  border: 1px solid #E9D825;
+  border: 1px solid #FFDA01;
   border-radius: 16px;
   font-family: Manifold;
-  font-size: 32px;
-  line-height: 32px;
+  font-size: 21px;
+  line-height: 25px;
   font-weight: 700;
-  background-color: #E9D825;
+  background-color: #FFDA01;
 }
 
 
@@ -232,15 +212,18 @@ iframe {
 }
 
 .description {
+  margin: 0 auto;
   display: grid;
   row-gap: 60px;
+  max-width: 960px;
 }
 
 .description__text {
   text-align: center;
-  font-size: 28px;
+  font-size: 22px;
+  line-height: 26px;
   font-weight: 300;
-  color: #ffffff;
+  color: #000;
 }
 
 .bold {

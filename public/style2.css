@@ -151,6 +151,10 @@ html {
   cursor: pointer;
 }
 
+.form__btn {
+  color: #000;
+}
+
 .form__btn,
 .forn__btn_hover {
   height: 100%;

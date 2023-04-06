@@ -1,11 +1,12 @@
 import mongoose from "mongoose";
 
 
-export interface IUser {
+export interface IUser extends mongoose.Document {
     userName: string;
     referralId: string;
     referrals: IUser[];
     createdAt: Date;
+    miles: string[];
 }
 
 const userSchema = new mongoose.Schema<IUser>(
@@ -30,6 +31,10 @@ const userSchema = new mongoose.Schema<IUser>(
             type: Date,
             default: Date.now(),
             select: false
+        },
+        miles: {
+            type: [Number],
+            default: []
         }
     }
 )

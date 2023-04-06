@@ -3,23 +3,19 @@ import { AppError } from '../../utils/AppError';
 import catchAsync from '../../utils/catchAsync';
 import jwt from 'jsonwebtoken';
 import { promisify } from 'util';
+import { checkTgTokenAndGetAccessToken } from './checkTgTokenAndGetAccessToken';
+import { decodeAuthToken } from './decodeAuthToken';
 
-const signToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_EXPIRES_IN,
-    });
-};
 
-const createSendToken = (user: IUser, statusCode, res) => {
-    const token = signToken(user.referralId);
-    const cookieOptions = {
-        expires: new Date(Date.now() + Number(process.env.JWT_COOKIE_EXPIRES_IN) * 24 * 60 * 60 * 1000),
-        httpOnly: true,
-        secure: false,
-    };
-    if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
+const sendToken = (token: string, user: IUser, statusCode, res) => {
+    // const cookieOptions = {
+    //     expires: new Date(Date.now() + Number(process.env.JWT_COOKIE_EXPIRES_IN) * 24 * 60 * 60 * 1000),
+    //     httpOnly: true,
+    //     secure: false,
+    // };
+    // if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
 
-    res.cookie('jwt', token, cookieOptions);
+    // res.cookie('jwt', token, cookieOptions);
 
     res.status(statusCode).json({
         status: 'success',
@@ -30,27 +26,35 @@ const createSendToken = (user: IUser, statusCode, res) => {
     });
 };
 
-export const signup = catchAsync(async (req, res, next) => {
-    const newUser = await User.create(req.body);
-
-    res.status(201).json({
-        status: 'success',
-        data: {
-            user: newUser,
-        },
-    });
-
-    createSendToken(newUser, 201, res);
-});
-
 export const login = catchAsync(async (req, res, next) => {
-    //todo check tg hash
-    const user = await User.findOne({ referralId: req.body.referralId });
-    createSendToken(user, 200, res);
+    const { userData } = req.body;
+
+
+    if (!userData) {
+        return next(new AppError('Please provide telegram user data', 400));
+    }
+
+    const { isValid, accessToken, isOutdated, userId } = checkTgTokenAndGetAccessToken(userData);
+
+    if (!isValid) {
+        return next(new AppError('Data is NOT from Telegram', 400));
+    }
+
+    if (isOutdated) {
+        return next(new AppError('Data is outdated', 400));
+    }
+
+    let user: IUser = await User.findOne({ referralId: userId });
+
+    if(!user) {
+        const userName = userData.username || `${userData.first_name} ${userData.last_name}`;
+        user = await User.create({ userName, referralId: userId, createdAt: new Date()  });
+    }
+
+    sendToken(accessToken, user, 200, res);
 });
 
 export const protect = catchAsync(async (req, res, next) => {
-    // 1) Getting token and check of it's there
     let token;
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
         token = req.headers.authorization.split(' ')[1];
@@ -60,21 +64,17 @@ export const protect = catchAsync(async (req, res, next) => {
         return next(new AppError('You are not logged in! Please log in to get access.', 401));
     }
 
-    // 2) Verification token
-    const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+    const { userId, isOutdated } = decodeAuthToken(token);
 
-    // 3) Check if user still exists
-    const currentUser = await User.findById(decoded.id);
+    const currentUser = await User.find({ referralId: userId });
     if (!currentUser) {
         return next(new AppError('The user belonging to this token does no longer exist.', 401));
     }
 
-    // 4) Check if user changed password after the token was issued
-    if (currentUser.changedPasswordAfter(decoded.iat)) {
-        return next(new AppError('User recently changed password! Please log in again.', 401));
+    if (isOutdated) {
+        return next(new AppError('Data is outdated', 400));
     }
 
-    // GRANT ACCESS TO PROTECTED ROUTE
     req.user = currentUser;
     next();
 });

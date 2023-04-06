@@ -1,19 +1,8 @@
-import { IUser, User } from '../models/userModel';
-import { AppError } from '../utils/AppError';
-import catchAsync from '../utils/catchAsync';
+import { IUser, User } from '../../models/userModel';
+import { AppError } from '../../utils/AppError';
+import catchAsync from '../../utils/catchAsync';
 import jwt from 'jsonwebtoken';
 import { promisify } from 'util';
-
-//tgData
-// {
-//     "id": 83261137,
-//     "first_name": "max",
-//     "last_name": "axenov",
-//     "username": "pussydog",
-//     "photo_url": "https://t.me/i/userpic/320/zm9T80DVNxLcETsh7vDAffHswkUyl_xTMuWK_eaxUkU.jpg",
-//     "auth_date": 1680705146,
-//     "hash": "b16890e37e828a56b8aa9b6218537a03acbadd9814d38b8406210e9a48713d72"
-// }
 
 const signToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {

@@ -9,6 +9,7 @@ const AppError_1 = require("../../utils/AppError");
 const catchAsync_1 = __importDefault(require("../../utils/catchAsync"));
 const checkTgTokenAndGetAccessToken_1 = require("./checkTgTokenAndGetAccessToken");
 const decodeAuthToken_1 = require("./decodeAuthToken");
+const app_1 = require("../../app");
 const sendToken = (token, user, statusCode, res) => {
     // const cookieOptions = {
     //     expires: new Date(Date.now() + Number(process.env.JWT_COOKIE_EXPIRES_IN) * 24 * 60 * 60 * 1000),
@@ -40,8 +41,18 @@ exports.login = (0, catchAsync_1.default)(async (req, res, next) => {
     let user = await userModel_1.User.findOne({ referralId: userId });
     if (!user) {
         const userName = userData.username || `${userData.first_name} ${userData.last_name}`;
-        user = await userModel_1.User.create({ userName, referralId: userId, createdAt: new Date() });
+        user = await userModel_1.User.create({
+            userName,
+            referralId: userId,
+            createdAt: new Date(),
+            miles: app_1.milesConfig.registration
+        });
+        user.addMiles('registration');
     }
+    else {
+        user.addMiles('login');
+    }
+    user.save();
     sendToken(accessToken, user, 200, res);
 });
 exports.protect = (0, catchAsync_1.default)(async (req, res, next) => {

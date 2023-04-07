@@ -10,5 +10,5 @@ userRouter.route('/')
 userRouter.post('/login', login);
 
 userRouter.route('/:id')
-  .get(getUser)
+  .get(protect, getUser)
   .patch(protect, addReferral);

@@ -59,8 +59,7 @@ const userSchema = new mongoose.Schema<IUser, UserModel, IUserMethods>(
 userSchema.methods.addMiles = function(this: IUser, milesType: keyof IMilesConfig): void {
     if (milesType === 'login') {
         const lastLoginDate = dayjs(this.lastLoginAt).dayOfYear();
-        console.log(lastLoginDate);
-        console.log(dayjs().dayOfYear());
+        this.lastLoginAt = new Date();
         if (lastLoginDate === dayjs().dayOfYear()) {
             return;
         }

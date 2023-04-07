@@ -26,6 +26,6 @@ app.use('/api/v1/usersCount', usersCountRouter)
 
 export let milesConfig: IMilesConfig;
 
-readFile(`${__dirname}/../../milesConfig.json`, 'utf8').then(data => {
+readFile(`${__dirname}/milesConfig.json`, 'utf8').then(data => {
     milesConfig = JSON.parse(data);
 });

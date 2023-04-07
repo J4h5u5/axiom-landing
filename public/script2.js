@@ -109,11 +109,13 @@ const loginUser = (userData) => {
                     showCosmos();
                     delay(1100).then(() => {
                         hideWelcome();
+                        res.json().then(({ data }) => {
+                            console.log('%c data', 'background: #222; color: #bada55', data);
+                        });
                         // Здесь отображение кабинета
                         // document.querySelector(
                         //     '#referral-link'
                         // ).innerHTML = `твоя реферральная ссылка: ${location.origin}/?ref=${userRefId}`;
-                        console.log('/users/:id');
                     })
                     delay(2000).then(() => {
                         hideWrapper().then(() => {

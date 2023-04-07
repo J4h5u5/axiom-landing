@@ -4,10 +4,10 @@
   "description": "Axiom project landing",
   "main": "app.js",
   "scripts": {
-    "start": "node ./build/server.js",
+    "start": "rimraf ./build && tsc && node ./build/server.js",
     "dev": "nodemon server.ts",
     "debug": "ndb server.js",
-    "build": "rimraf ./build && tsc && rimraf ./build && tsc"
+    "build": "rimraf ./build && tsc"
   },
   "repository": {
     "type": "git",

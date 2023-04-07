@@ -20,14 +20,14 @@ const loginUser = (userData) => {
         },
         body: JSON.stringify({ userData }),
     }).then(async (createRes) => {
-        console.log('post /users', createRes);
+
 
         const responseData = await createRes.json();
         authToken = responseData.token;
-        console.log(authToken);
+        console.log(responseData);
         const searchParams = new URLSearchParams(location.search);
         const refId = searchParams.get('ref');
-        console.log(refId);
+
         if (refId) {
             const userName = userData.username || `${userData.first_name} ${userData.last_name}`;
             fetch(`${API_URL}/users/${refId}`, {
@@ -42,7 +42,7 @@ const loginUser = (userData) => {
             });
         }
 
-        return createRes;
+        return responseData;
     });
 };
 
@@ -103,16 +103,14 @@ const loginUser = (userData) => {
         hideForm();
         showCountdown();
 
-        loginUser(userData).then((res) => {
+        loginUser(userData).then((loginData) => {
             delay(7000).then(() => {
                 hideCountdown();
                 delay(1000).then(() => {
                     showCosmos();
                     delay(1100).then(() => {
                         hideWelcome();
-                        res.json().then((data) => {
-                            console.log('%c data', 'background: #222; color: #bada55', data);
-                        });
+                        document.querySelector('#miles').innerHTML = loginData.miles;
                         // Здесь отображение кабинета
                         // document.querySelector(
                         //     '#referral-link'

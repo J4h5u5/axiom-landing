@@ -113,7 +113,7 @@ const loginUser = (userData) => {
                         // document.querySelector(
                         //     '#referral-link'
                         // ).innerHTML = `твоя реферральная ссылка: ${location.origin}/?ref=${userRefId}`;
-                        console.log('/users/:id', data);
+                        console.log('/users/:id');
                     })
                     delay(2000).then(() => {
                         hideWrapper().then(() => {

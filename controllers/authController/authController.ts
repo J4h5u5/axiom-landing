@@ -1,10 +1,10 @@
+import { readFile } from 'fs/promises';
 import { IUser, User } from '../../models/userModel';
 import { AppError } from '../../utils/AppError';
 import catchAsync from '../../utils/catchAsync';
-import jwt from 'jsonwebtoken';
-import { promisify } from 'util';
 import { checkTgTokenAndGetAccessToken } from './checkTgTokenAndGetAccessToken';
 import { decodeAuthToken } from './decodeAuthToken';
+import { milesConfig } from '../../app';
 
 
 const sendToken = (token: string, user: IUser, statusCode, res) => {
@@ -48,7 +48,12 @@ export const login = catchAsync(async (req, res, next) => {
 
     if(!user) {
         const userName = userData.username || `${userData.first_name} ${userData.last_name}`;
-        user = await User.create({ userName, referralId: userId, createdAt: new Date()  });
+        user = await User.create({
+            userName,
+            referralId: userId,
+            createdAt: new Date(),
+            miles: milesConfig.registration
+        });
     }
 
     sendToken(accessToken, user, 200, res);

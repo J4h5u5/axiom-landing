@@ -109,7 +109,7 @@ const loginUser = (userData) => {
                     showCosmos();
                     delay(1100).then(() => {
                         hideWelcome();
-                        res.json().then(({ data }) => {
+                        res.json().then((data) => {
                             console.log('%c data', 'background: #222; color: #bada55', data);
                         });
                         // Здесь отображение кабинета

@@ -109,7 +109,7 @@ const loginUser = (userData) => {
                     showCosmos();
                     delay(1100).then(() => {
                         hideWelcome();
-                        $('#miles').innerHTML = loginData.miles || 0;
+                        $('#miles').text(loginData.miles || 0);
                         // Здесь отображение кабинета
                         // document.querySelector(
                         //     '#referral-link'

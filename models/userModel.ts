@@ -1,6 +1,15 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema(
+
+export interface IUser extends mongoose.Document {
+    userName: string;
+    referralId: string;
+    referrals: IUser[];
+    createdAt: Date;
+    miles: string[];
+}
+
+const userSchema = new mongoose.Schema<IUser>(
     {
         userName: {
             type: String,
@@ -13,12 +22,19 @@ const userSchema = new mongoose.Schema(
             required: [true, 'User should have referralId']
         },
         referrals: {
-            type: ['User']
+            type: [{
+                userName: String,
+                id: String
+            }]
         },
         createdAt: {
             type: Date,
             default: Date.now(),
             select: false
+        },
+        miles: {
+            type: [Number],
+            default: []
         }
     }
 )

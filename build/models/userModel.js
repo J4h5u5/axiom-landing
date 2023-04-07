@@ -17,12 +17,19 @@ const userSchema = new mongoose_1.default.Schema({
         required: [true, 'User should have referralId']
     },
     referrals: {
-        type: ['User']
+        type: [{
+                userName: String,
+                id: String
+            }]
     },
     createdAt: {
         type: Date,
         default: Date.now(),
         select: false
+    },
+    miles: {
+        type: [Number],
+        default: []
     }
 });
 exports.User = mongoose_1.default.model('User', userSchema);

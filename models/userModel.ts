@@ -64,6 +64,7 @@ userSchema.methods.addMiles = function(this: IUser, milesType: keyof IMilesConfi
             return;
         }
     }
+
     this.miles = this.miles + milesConfig[milesType];
 };
 

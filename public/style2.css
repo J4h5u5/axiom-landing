@@ -168,9 +168,9 @@ html {
   background-color: #FFDA01;
 }
 
-.auth-wrapper:hover .form__btn {
+/* .auth-wrapper:hover .form__btn {
   display: none;
-}
+} */
 
 .forn__btn_hover {
   display: none;

@@ -33,7 +33,8 @@ const loginUser = (userData) => {
             fetch(`${API_URL}/users/${refId}`, {
                 method: 'PATCH',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + authToken
                 },
                 body: JSON.stringify({
                     id: userData.id,
@@ -98,8 +99,6 @@ const loginUser = (userData) => {
     });
 
     window.onTelegramAuth = (userData) => {
-        console.log(userData);
-
         hideForm();
         showCountdown();
 
@@ -110,7 +109,7 @@ const loginUser = (userData) => {
                     showCosmos();
                     delay(1100).then(() => {
                         hideWelcome();
-                        document.querySelector('#miles').innerHTML = loginData.miles;
+                        $('#miles').innerHTML = loginData.miles || 0;
                         // Здесь отображение кабинета
                         // document.querySelector(
                         //     '#referral-link'

@@ -28,7 +28,6 @@ const loginUser = (userData) => {
         const searchParams = new URLSearchParams(location.search);
         const refId = searchParams.get('ref');
         console.log(refId);
-
         if (refId) {
             const userName = userData.username || `${userData.first_name} ${userData.last_name}`;
             fetch(`${API_URL}/users/${refId}`, {
@@ -40,8 +39,10 @@ const loginUser = (userData) => {
                     id: userData.id,
                     userName
                 }),
-            }).then((res) => {});
+            });
         }
+
+        return createRes;
     });
 };
 

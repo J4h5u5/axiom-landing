@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import { app } from './app';
 
-dotenv.config({ path: './config.env' });
+export const envConfig = dotenv.config({ path: './config.env' });
 
 const DB = process.env.DATABASE?.replace(
   '<PASSWORD>',
@@ -13,7 +13,8 @@ mongoose
     .connect(DB, { autoIndex: true})
     .then(() => console.log('DB connection successful!'));
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 80;
+
 app.listen(port, () => {
     console.log(`App running on port ${port}...`);
 });

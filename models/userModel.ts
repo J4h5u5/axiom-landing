@@ -14,6 +14,7 @@ export interface IUser extends mongoose.Document {
     createdAt: Date;
     miles: number;
     lastLoginAt: Date;
+    lastDailyMilesPayout: Date;
 }
 
 interface IUserMethods {
@@ -50,8 +51,10 @@ const userSchema = new mongoose.Schema<IUser, UserModel, IUserMethods>(
             default: 0
         },
         lastLoginAt: {
-            type: Date,
-            default: Date.now()
+            type: Date
+        },
+        lastDailyMilesPayout: {
+            type: Date
         }
     }
 )

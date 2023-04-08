@@ -1,7 +1,6 @@
-const API_URL = `${location.origin}/api/v1`;
+const API_URL = location.hash === '#dev' ? 'http://localhost:80/api/v1' : `${location.origin}/api/v1`;
 
 // eslint-disable-next-line node/no-unsupported-features/node-builtins
-// const enc = new TextEncoder();
 
 let authToken;
 

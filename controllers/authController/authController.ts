@@ -8,15 +8,6 @@ import { milesConfig } from '../../app';
 
 
 const sendToken = (token: string, user: IUser, statusCode, res) => {
-    // const cookieOptions = {
-    //     expires: new Date(Date.now() + Number(process.env.JWT_COOKIE_EXPIRES_IN) * 24 * 60 * 60 * 1000),
-    //     httpOnly: true,
-    //     secure: false,
-    // };
-    // if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
-
-    // res.cookie('jwt', token, cookieOptions);
-    console.log(user);
     res.status(statusCode).json({
         status: 'success',
         token,
@@ -50,8 +41,7 @@ export const login = catchAsync(async (req, res, next) => {
         user = await User.create({
             userName,
             referralId: userId,
-            createdAt: new Date(),
-            miles: milesConfig.registration
+            createdAt: new Date()
         });
         user.addMiles('registration');
     } else {

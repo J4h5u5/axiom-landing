@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 }
 
-// app.use(morgan('tiny', { stream: fs.createWriteStream('./server.log', { flags: 'a' }) }));
+app.use(morgan('tiny', { stream: fs.createWriteStream('./server.log', { flags: 'a' }) }));
 
 app.use(express.json());
 

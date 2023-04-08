@@ -13,6 +13,8 @@ mongoose
     .connect(DB, { autoIndex: true})
     .then(() => console.log('DB connection successful!'));
 
+    console.log(process.env.NODE_ENV)
+    console.log(process.env.PORT)
 const port = process.env.NODE_ENV === 'development' ? (process.env.PORT || 80) : 4000;
 
 app.listen(port, () => {

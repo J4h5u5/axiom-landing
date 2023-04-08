@@ -9,17 +9,17 @@ import { usersCountRouter } from './routes/usersCountRouter';
 import { readFile } from 'fs/promises';
 import { IMilesConfig } from './interface';
 import { User } from './models/userModel';
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 
-dotenv.config({ path: './config.env' });
+// dotenv.config({ path: './config.env' });
 
 export const app = express();
 
 app.use(cors());
 
-if (process.env.NODE_ENV === 'development') {
-    app.use(morgan('dev'));
-}
+// if (process.env.NODE_ENV === 'development') {
+//     app.use(morgan('dev'));
+// }
 
 app.use(morgan('tiny', { stream: fs.createWriteStream('./server.log', { flags: 'a' }) }));
 

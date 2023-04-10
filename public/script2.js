@@ -1,7 +1,6 @@
-const API_URL = `${location.origin}/api/v1`;
+const API_URL = location.hash === '#dev' ? 'http://localhost:80/api/v1' : `${location.origin}/api/v1`;
 
 // eslint-disable-next-line node/no-unsupported-features/node-builtins
-// const enc = new TextEncoder();
 
 let authToken;
 
@@ -20,28 +19,30 @@ const loginUser = (userData) => {
         },
         body: JSON.stringify({ userData }),
     }).then(async (createRes) => {
-        console.log('post /users', createRes);
+
 
         const responseData = await createRes.json();
         authToken = responseData.token;
-        console.log(authToken);
+        console.log(responseData);
         const searchParams = new URLSearchParams(location.search);
         const refId = searchParams.get('ref');
-        console.log(refId);
 
         if (refId) {
             const userName = userData.username || `${userData.first_name} ${userData.last_name}`;
             fetch(`${API_URL}/users/${refId}`, {
                 method: 'PATCH',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + authToken
                 },
                 body: JSON.stringify({
                     id: userData.id,
                     userName
                 }),
-            }).then((res) => {});
+            });
         }
+
+        return responseData;
     });
 };
 
@@ -97,23 +98,21 @@ const loginUser = (userData) => {
     });
 
     window.onTelegramAuth = (userData) => {
-        console.log(userData);
-
         hideForm();
         showCountdown();
 
-        loginUser(userData).then((res) => {
+        loginUser(userData).then((loginData) => {
             delay(7000).then(() => {
                 hideCountdown();
                 delay(1000).then(() => {
                     showCosmos();
                     delay(1100).then(() => {
                         hideWelcome();
+                        $('#miles').text(loginData.data.user.miles || 0);
                         // Здесь отображение кабинета
                         // document.querySelector(
                         //     '#referral-link'
                         // ).innerHTML = `твоя реферральная ссылка: ${location.origin}/?ref=${userRefId}`;
-                        console.log('/users/:id', data);
                     })
                     delay(2000).then(() => {
                         hideWrapper().then(() => {

@@ -1,22 +1,13 @@
+import { readFile } from 'fs/promises';
 import { IUser, User } from '../../models/userModel';
 import { AppError } from '../../utils/AppError';
 import catchAsync from '../../utils/catchAsync';
-import jwt from 'jsonwebtoken';
-import { promisify } from 'util';
 import { checkTgTokenAndGetAccessToken } from './checkTgTokenAndGetAccessToken';
 import { decodeAuthToken } from './decodeAuthToken';
+import { milesConfig } from '../../app';
 
 
 const sendToken = (token: string, user: IUser, statusCode, res) => {
-    // const cookieOptions = {
-    //     expires: new Date(Date.now() + Number(process.env.JWT_COOKIE_EXPIRES_IN) * 24 * 60 * 60 * 1000),
-    //     httpOnly: true,
-    //     secure: false,
-    // };
-    // if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
-
-    // res.cookie('jwt', token, cookieOptions);
-
     res.status(statusCode).json({
         status: 'success',
         token,
@@ -28,7 +19,6 @@ const sendToken = (token: string, user: IUser, statusCode, res) => {
 
 export const login = catchAsync(async (req, res, next) => {
     const { userData } = req.body;
-
 
     if (!userData) {
         return next(new AppError('Please provide telegram user data', 400));
@@ -44,12 +34,20 @@ export const login = catchAsync(async (req, res, next) => {
         return next(new AppError('Data is outdated', 400));
     }
 
-    let user: IUser = await User.findOne({ referralId: userId });
+    let user = await User.findOne({ referralId: userId });
 
     if(!user) {
         const userName = userData.username || `${userData.first_name} ${userData.last_name}`;
-        user = await User.create({ userName, referralId: userId, createdAt: new Date()  });
+        user = await User.create({
+            userName,
+            referralId: userId,
+            createdAt: new Date()
+        });
+        user.addMiles('registration');
+    } else {
+        user.addMiles('login');
     }
+    user.save();
 
     sendToken(accessToken, user, 200, res);
 });
@@ -65,8 +63,8 @@ export const protect = catchAsync(async (req, res, next) => {
     }
 
     const { userId, isOutdated } = decodeAuthToken(token);
-
     const currentUser = await User.find({ referralId: userId });
+
     if (!currentUser) {
         return next(new AppError('The user belonging to this token does no longer exist.', 401));
     }

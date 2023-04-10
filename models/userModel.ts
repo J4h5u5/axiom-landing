@@ -1,4 +1,10 @@
-import mongoose from "mongoose";
+import mongoose, { Model } from "mongoose";
+import dayjs from 'dayjs'
+import { IMilesConfig } from '../interface';
+import { milesConfig } from "../app";
+
+import dayOfYear from 'dayjs/plugin/dayOfYear';
+dayjs.extend(dayOfYear)
 
 
 export interface IUser extends mongoose.Document {
@@ -6,10 +12,18 @@ export interface IUser extends mongoose.Document {
     referralId: string;
     referrals: IUser[];
     createdAt: Date;
-    miles: string[];
+    miles: number;
+    lastLoginAt: Date;
+    lastDailyMilesPayout: Date;
 }
 
-const userSchema = new mongoose.Schema<IUser>(
+interface IUserMethods {
+    addMiles(milesType: keyof IMilesConfig): void;
+}
+
+type UserModel = Model<IUser, {}, IUserMethods>;
+
+const userSchema = new mongoose.Schema<IUser, UserModel, IUserMethods>(
     {
         userName: {
             type: String,
@@ -33,10 +47,28 @@ const userSchema = new mongoose.Schema<IUser>(
             select: false
         },
         miles: {
-            type: [Number],
-            default: []
+            type: Number,
+            default: 0
+        },
+        lastLoginAt: {
+            type: Date
+        },
+        lastDailyMilesPayout: {
+            type: Date
         }
     }
 )
+
+userSchema.methods.addMiles = function(this: IUser, milesType: keyof IMilesConfig): void {
+    if (milesType === 'login') {
+        const lastLoginDate = dayjs(this.lastLoginAt).dayOfYear();
+        this.lastLoginAt = new Date();
+        if (lastLoginDate === dayjs().dayOfYear()) {
+            return;
+        }
+    }
+
+    this.miles = this.miles + milesConfig[milesType];
+};
 
 export const User = mongoose.model('User', userSchema);

@@ -4,7 +4,7 @@
   "description": "Axiom project landing",
   "main": "app.js",
   "scripts": {
-    "start": "node ./build/server.js",
+    "start": "rimraf ./build && tsc && node ./build/server.js",
     "dev": "nodemon server.ts",
     "debug": "ndb server.js",
     "build": "rimraf ./build && tsc"
@@ -21,11 +21,13 @@
   "homepage": "https://github.com/J4h5u5/axiom-landing#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "dayjs": "^1.11.7",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.2",
     "morgan": "^1.10.0",
+    "node-cron": "^3.0.2",
     "slugify": "^1.6.5",
     "ts-node": "^10.9.1",
     "validator": "^13.9.0"

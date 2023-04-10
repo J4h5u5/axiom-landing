@@ -36,27 +36,27 @@ readFile(`${__dirname}/milesConfig.json`, 'utf8').then((data) => {
     milesConfig = JSON.parse(data);
 });
 
-// cron.schedule('0 0 0 * * *', function () {
-//     const stream = fs.createWriteStream('./miles.log', { flags: 'a' });
+cron.schedule('0 0 0 * * *', function () {
+    const stream = fs.createWriteStream('./miles.log', { flags: 'a' });
 
-//     stream.write(`${Date.now()}:\n`);
+    stream.write(`${Date.now()}:\n`);
 
-//     User.updateMany(
-//         {},
-//         {
-//             $set: { lastDailyMilesPayout: new Date() },
-//             $inc: { miles: milesConfig.daily },
-//         }
-//     )
-//         .then((a) => {
-//             stream.write('daily miless paid succesfull');
-//             stream.end();
-//         })
-//         .catch((err) => {
-//             stream.write(`daily miless did not paid, error:\n${err}`);
-//             stream.end();
-//         });
-// });
+    User.updateMany(
+        {},
+        {
+            $set: { lastDailyMilesPayout: new Date() },
+            $inc: { miles: milesConfig.daily },
+        }
+    )
+        .then((a) => {
+            stream.write('daily miless paid succesfull');
+            stream.end();
+        })
+        .catch((err) => {
+            stream.write(`daily miless did not paid, error:\n${err}`);
+            stream.end();
+        });
+});
 
 // cron.schedule('0 0 * * 0', function () {
 //     // каждую неделю чистить server.log

@@ -57,7 +57,7 @@ export const createUser = async (req, res) => {
 export const addReferral = async (req, res) => {
     try {
         await User.findOneAndUpdate(
-            { referralId: req.params.id },
+            { referralId: req.params.id, 'referrals.id': { $ne: req.body.id } },
             { $push: { referrals: req.body } },
             {
                 new: true,

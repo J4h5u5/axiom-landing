@@ -31,7 +31,7 @@ export const login = catchAsync(async (req, res, next) => {
     }
 
     if (isOutdated) {
-        return next(new AppError('Data is outdated', 400));
+        return next(new AppError('Token is outdated', 400));
     }
 
     let user = await User.findOne({ referralId: userId });
@@ -70,7 +70,7 @@ export const protect = catchAsync(async (req, res, next) => {
     }
 
     if (isOutdated) {
-        return next(new AppError('Data is outdated', 400));
+        return next(new AppError('Token is outdated', 400));
     }
 
     req.user = currentUser;
